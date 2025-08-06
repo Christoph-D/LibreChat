@@ -326,6 +326,7 @@ export type TConfig = {
   availableRegions?: string[];
   plugins?: Record<string, string>;
   name?: string;
+  hideConvoIcon?: boolean;
   iconURL?: string;
   version?: string;
   modelDisplayLabel?: string;

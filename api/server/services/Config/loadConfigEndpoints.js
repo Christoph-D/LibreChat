@@ -33,6 +33,7 @@ async function loadConfigEndpoints(req) {
         baseURL,
         apiKey,
         name: configName,
+        hideConvoIcon,
         iconURL,
         modelDisplayLabel,
         customParams,
@@ -47,6 +48,7 @@ async function loadConfigEndpoints(req) {
         userProvide: isUserProvided(resolvedApiKey),
         userProvideURL: isUserProvided(resolvedBaseURL),
         modelDisplayLabel,
+        hideConvoIcon,
         iconURL,
         customParams,
       };
