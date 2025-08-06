@@ -65,6 +65,11 @@ export default function Conversation({
     }
   }, [currentConvoId, conversationId, activeConvos]);
 
+  const hideConvoIcon = useMemo(() => {
+    const endpoint = conversation.endpoint;
+    return endpoint && endpointsConfig?.[endpoint]?.hideConvoIcon;
+  }, [conversation.endpoint, endpointsConfig]);
+
   const handleRename = () => {
     setIsPopoverActive(false);
     setTitleInput(title as string);
@@ -177,12 +182,14 @@ export default function Conversation({
           isSmallScreen={isSmallScreen}
           localize={localize}
         >
-          <EndpointIcon
-            conversation={conversation}
-            endpointsConfig={endpointsConfig}
-            size={20}
-            context="menu-item"
-          />
+          {!hideConvoIcon && (
+            <EndpointIcon
+              conversation={conversation}
+              endpointsConfig={endpointsConfig}
+              size={20}
+              context="menu-item"
+            />
+          )}
         </ConvoLink>
       )}
       <div
