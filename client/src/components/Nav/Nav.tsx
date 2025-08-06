@@ -21,7 +21,7 @@ import store from '~/store';
 const BookmarkNav = lazy(() => import('./Bookmarks/BookmarkNav'));
 const AccountSettings = lazy(() => import('./AccountSettings'));
 
-const NAV_WIDTH_DESKTOP = '260px';
+const NAV_WIDTH_DESKTOP = '320px';
 const NAV_WIDTH_MOBILE = '320px';
 
 const NavMask = memo(
@@ -187,14 +187,14 @@ const Nav = memo(
           data-testid="nav"
           className={cn(
             'nav active max-w-[320px] flex-shrink-0 transform overflow-x-hidden bg-surface-primary-alt transition-all duration-200 ease-in-out',
-            'md:max-w-[260px]',
+            `md:max-w-[${navWidth}]`,
           )}
           style={{
             width: navVisible ? navWidth : '0px',
             transform: navVisible ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
-          <div className="h-full w-[320px] md:w-[260px]">
+          <div className={`h-full w-[320px] md:w-[${navWidth}]`}>
             <div className="flex h-full flex-col">
               <div
                 className={`flex h-full flex-col transition-opacity duration-200 ease-in-out ${navVisible ? 'opacity-100' : 'opacity-0'}`}
